@@ -1,9 +1,9 @@
 package com.example.viaggi_bollettino;
 
-public class viaggioVolo extends viaggio {
+public class ViaggioVolo extends Viaggio {
     private boolean andata_ritorno;
 
-    public viaggioVolo(String destinazione, int durataG, double costo, boolean andataRitorno) {
+    public ViaggioVolo(String destinazione, int durataG, double costo, boolean andataRitorno) {
         super(destinazione, durataG, costo);
         this.andata_ritorno = andataRitorno;
     }
@@ -23,8 +23,8 @@ public class viaggioVolo extends viaggio {
 
     @Override
     public boolean equals(Object o) {
-        if (o instanceof viaggio) {
-            viaggio r = (viaggio) o;
+        if (o instanceof Viaggio) {
+            Viaggio r = (Viaggio) o;
             return super.equals(o) && this.andata_ritorno == GetAndata_Ritorno();
         }
         return false;

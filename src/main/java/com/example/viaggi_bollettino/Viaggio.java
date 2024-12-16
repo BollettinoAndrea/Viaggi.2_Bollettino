@@ -1,11 +1,11 @@
 package com.example.viaggi_bollettino;
 
-public abstract class viaggio {
+public abstract class Viaggio {
     private String destinazione;
     private int durataG;
     private double costo;
 
-    public viaggio(String destinazione, int durata, double costo){
+    public Viaggio(String destinazione, int durata, double costo){
         this.destinazione=destinazione;
         this.durataG=durata;
         this.costo=costo;
@@ -42,8 +42,8 @@ public abstract class viaggio {
 
     @Override
     public boolean equals(Object o){
-        if(o instanceof viaggio){
-            viaggio r=(viaggio) o;
+        if(o instanceof Viaggio){
+            Viaggio r=(Viaggio) o;
             return r.getDestinazione().equalsIgnoreCase(this.destinazione) && this.durataG==r.getDurataG() && this.costo==getCosto();
         }
         return false;

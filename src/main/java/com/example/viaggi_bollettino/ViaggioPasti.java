@@ -1,9 +1,9 @@
 package com.example.viaggi_bollettino;
 
-public class viaggioPasti extends viaggio{
+public class ViaggioPasti extends Viaggio {
     private  boolean PensioneCompleta;
 
-    public viaggioPasti(String destinazione, int durataG, double costo, boolean PensioneComp){
+    public ViaggioPasti(String destinazione, int durataG, double costo, boolean PensioneComp){
         super(destinazione,  durataG, costo);
         this.PensioneCompleta =PensioneComp;
     }
@@ -23,8 +23,8 @@ public class viaggioPasti extends viaggio{
 
     @Override
     public boolean equals(Object o){
-        if(o instanceof viaggio){
-            viaggio r=(viaggio) o;
+        if(o instanceof Viaggio){
+            Viaggio r=(Viaggio) o;
             return super.equals(o) && this.PensioneCompleta == GetPensioneCompleta();
         }
         return false;

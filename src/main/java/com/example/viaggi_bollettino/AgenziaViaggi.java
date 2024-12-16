@@ -1,41 +1,41 @@
 package com.example.viaggi_bollettino;
 
-public class agenziaViaggi {
-    private viaggio [] v;
-    private int inseriti;
+public class AgenziaViaggi {
+    private Viaggio[] v;
+    private int viaggiInseriti;
 
-    public agenziaViaggi(viaggio[] viaggios,int inseriti) {
+    public AgenziaViaggi(Viaggio[] viaggios, int inseriti) {
         this.v = viaggios;
-        this.inseriti=inseriti;
+        this.viaggiInseriti =inseriti;
     }
-    public agenziaViaggi(int nViaggio) {
-        this(new viaggio[nViaggio],0);
+    public AgenziaViaggi(int nViaggio) {
+        this(new Viaggio[nViaggio],0);
     }
-    public agenziaViaggi() {
-        this(new viaggio[100],0);
+    public AgenziaViaggi() {
+        this(new Viaggio[100],0);
     }
 
 
-    public viaggio[] getViaggio() { return v; }
-    public void setViaggio(viaggio[] viaggio) { this.v = viaggio; }
+    public Viaggio[] getViaggio() { return v; }
+    public void setViaggio(Viaggio[] viaggio) { this.v = viaggio; }
 
-    public int getInseriti() { return inseriti; }
-    public void setInseriti(int inseriti) { this.inseriti = inseriti; }
+    public int getViaggiInseriti() { return viaggiInseriti; }
+    public void setViaggiInseriti(int viaggiInseriti) { this.viaggiInseriti = viaggiInseriti; }
 
 
     @Override
     public String toString() {
-        String s="Elenco:\n";
-        for (int i=0;i<this.inseriti;i++){
-            s=s+v[i].toString()+", costo: "+v[i].getCosto()+" \n";
+        String s="Elenco: ";
+        for (int i = 0; i<this.viaggiInseriti; i++){
+            s=s+v[i].toString()+", costo: "+v[i].getCosto()+" ";
         }
         return s;
     }
     @Override
     public boolean equals(Object o){
-        if(o instanceof agenziaViaggi){
-            agenziaViaggi r=(agenziaViaggi) o;
-            for (int i=0;i<this.inseriti;i++){
+        if(o instanceof AgenziaViaggi){
+            AgenziaViaggi r=(AgenziaViaggi) o;
+            for (int i = 0; i<this.viaggiInseriti; i++){
                 if (!v[i].equals(r.getViaggio()[i])){
                     return false;
                 }
@@ -46,26 +46,26 @@ public class agenziaViaggi {
     }
 
 
-    public boolean inserisci(viaggio viaggio){
-        if (this.inseriti== v.length)
+    public boolean inserisci(Viaggio viaggio){
+        if (this.viaggiInseriti == v.length)
             return false;
         else {
-            v[this.inseriti] = viaggio;
-            this.inseriti++;
+            v[this.viaggiInseriti] = viaggio;
+            this.viaggiInseriti++;
             return true;
         }
     }
     public double getCostoMedio(){
         double costo=0.0;
-        for (int i=0;i<this.inseriti;i++){
+        for (int i = 0; i<this.viaggiInseriti; i++){
             costo+=v[i].getCosto();
         }
-        return costo/this.inseriti;
+        return costo/this.viaggiInseriti;
     }
     public int getPosizionePacchettoMin(){
         double costoMin=v[0].getCosto();
         int posMin=0;
-        for (int i=0;i<this.inseriti;i++){
+        for (int i = 0; i<this.viaggiInseriti; i++){
             if (costoMin>v[i].getCosto()){
                 costoMin=v[i].getCosto();
                 posMin=i;
@@ -76,7 +76,7 @@ public class agenziaViaggi {
     public int getPosizionePacchettoMax(){
         double costoMax=v[0].getCosto();
         int posMax=0;
-        for (int i=0;i<this.inseriti;i++){
+        for (int i = 0; i<this.viaggiInseriti; i++){
             if (costoMax<v[i].getCosto()){
                 costoMax=v[i].getCosto();
                 posMax=i;
